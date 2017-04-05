@@ -1,9 +1,10 @@
 Raw_string = input('input Raw_string\n','s');
 Match_string = input('input Match_string\n','s');
 Match_num = 0;
-k = 1;
 
-for i = 1:numel(Raw_string)
+for i = 1+move:numel(Raw_string)
+    k = 1;
+    move = 0;
     
     if strcmp(Raw_string(i),Match_string(1)) == 0
         continue
@@ -18,6 +19,8 @@ for i = 1:numel(Raw_string)
                        break
                    end
                elseif strcmp(Raw_string(i+j-1),Match_string(j)) == 0
+                   x = k;
+                   move = x - Part_match(x);
                    k = 1;
                    break
                end    
